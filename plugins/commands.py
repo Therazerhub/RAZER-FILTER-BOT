@@ -258,7 +258,7 @@ async def start(client, message):
                 except:
                     f_caption=f_caption
             if f_caption is None:
-                f_caption = f"{title}"
+                f_caption = f"@VJ_Bots {title}"
             try:
                 if STREAM_MODE == True:
                     log_msg = await client.send_cached_media(chat_id=LOG_CHANNEL, file_id=msg.get("file_id"))
@@ -541,7 +541,7 @@ async def start(client, message):
             file = getattr(msg, filetype.value)
             title = file.file_name
             size=get_size(file.file_size)
-            f_caption = f"<code>{title}</code>"
+            f_caption = f"@VJ_Bots <code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
                 try:
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
@@ -1404,5 +1404,6 @@ async def purge_requests(client, message):
             parse_mode=enums.ParseMode.MARKDOWN,
             disable_web_page_preview=True
         )
+
 
 
