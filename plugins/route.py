@@ -1,6 +1,4 @@
-# Don't Remove Credit @VJ_Bots
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+# Razer Filter Bot - @Therazerhub
 
 import re, math, logging, secrets, mimetypes, time
 from info import *
@@ -17,7 +15,7 @@ routes = web.RouteTableDef()
 
 @routes.get("/", allow_head=True)
 async def root_route_handler(request):
-    return web.json_response("BenFilterBot")
+    return web.json_response("RazerFilterBot")
 
 @routes.get(r"/watch/{path:\S+}", allow_head=True)
 async def stream_handler(request: web.Request):

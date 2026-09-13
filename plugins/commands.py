@@ -1,6 +1,4 @@
-# Don't Remove Credit @VJ_Bots
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+# Razer Filter Bot - @Therazerhub
 
 import os, string, logging, random, asyncio, time, datetime, re, sys, json, base64
 from Script import script
@@ -170,10 +168,10 @@ async def start(client, message):
         )
         return
     data = message.command[1]
-    if data.split("-", 1)[0] == "VJ":
+    if data.split("-", 1)[0] == "RZR":
         user_id = int(data.split("-", 1)[1])
-        vj = await referal_add_user(user_id, message.from_user.id)
-        if vj and PREMIUM_AND_REFERAL_MODE == True:
+        rzr = await referal_add_user(user_id, message.from_user.id)
+        if rzr and PREMIUM_AND_REFERAL_MODE == True:
             await message.reply(f"<b>You have joined using the referral link of user with ID {user_id}\n\nSend /start again to use the bot</b>")
             num_referrals = await get_referal_users_count(user_id)
             await client.send_message(chat_id = user_id, text = "<b>{} start the bot with your referral link\n\nTotal Referals - {}</b>".format(message.from_user.mention, num_referrals))
@@ -258,7 +256,7 @@ async def start(client, message):
                 except:
                     f_caption=f_caption
             if f_caption is None:
-                f_caption = f"@VJ_Bots {title}"
+                f_caption = f"@Therazerhub {title}"
             try:
                 if STREAM_MODE == True:
                     log_msg = await client.send_cached_media(chat_id=LOG_CHANNEL, file_id=msg.get("file_id"))
@@ -446,7 +444,7 @@ async def start(client, message):
                 except:
                     f_caption=f_caption
             if f_caption is None:
-                f_caption = f"@VJ_Bots {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1['file_name'].split()))}"
+                f_caption = f"@Therazerhub {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1['file_name'].split()))}"
             if not await db.has_premium_access(message.from_user.id):
                 if not await check_verification(client, message.from_user.id) and VERIFY == True:
                     btn = [[
@@ -541,7 +539,7 @@ async def start(client, message):
             file = getattr(msg, filetype.value)
             title = file.file_name
             size=get_size(file.file_size)
-            f_caption = f"@VJ_Bots <code>{title}</code>"
+            f_caption = f"@Therazerhub <code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
                 try:
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
@@ -567,7 +565,7 @@ async def start(client, message):
         except:
             f_caption=f_caption
     if f_caption is None:
-        f_caption = f"@VJ_Bots {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files['file_name'].split()))}"
+        f_caption = f"@Therazerhub {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files['file_name'].split()))}"
     if not await db.has_premium_access(message.from_user.id):
         if not await check_verification(client, message.from_user.id) and VERIFY == True:
             btn = [[
@@ -1070,7 +1068,7 @@ async def shortlink(bot, message):
         return await message.reply(f"You are anonymous admin. Turn off anonymous admin and try again this command")
     chat_type = message.chat.type
     if chat_type == enums.ChatType.PRIVATE:
-        return await message.reply_text(f"<b>Hey {message.from_user.mention}, This command only works on groups !\n\n<u>Follow These Steps to Connect Shortener:</u>\n\n1. Add Me in Your Group with Full Admin Rights\n\n2. After Adding in Grp, Set your Shortener\n\nSend this command in your group\n\n—> /shortlink ""{your_shortener_website_name} {your_shortener_api}\n\n#Sample:-\n/shortlink kpslink.in CAACAgUAAxkBAAEJ4GtkyPgEzpIUC_DSmirN6eFWp4KInAACsQoAAoHSSFYub2D15dGHfy8E\n\nThat's it!!! Enjoy Earning Money 💲\n\n[[[ Trusted Earning Site - https://kpslink.in]]]\n\nIf you have any Doubts, Feel Free to Ask me - @kingvj01\n\n(Puriyala na intha contact la message pannunga - @kngvj01)</b>")
+        return await message.reply_text(f"<b>Hey {message.from_user.mention}, This command only works on groups !\n\n<u>Follow These Steps to Connect Shortener:</u>\n\n1. Add Me in Your Group with Full Admin Rights\n\n2. After Adding in Grp, Set your Shortener\n\nSend this command in your group\n\n—> /shortlink ""{your_shortener_website_name} {your_shortener_api}\n\n#Sample:-\n/shortlink kpslink.in CAACAgUAAxkBAAEJ4GtkyPgEzpIUC_DSmirN6eFWp4KInAACsQoAAoHSSFYub2D15dGHfy8E\n\nThat's it!!! Enjoy Earning Money 💲\n\n[[[ Trusted Earning Site - https://kpslink.in]]]\n\nIf you have any Doubts, Feel Free to Ask - @Therazerhub</b>")
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         grpid = message.chat.id
         title = message.chat.title

@@ -1,6 +1,4 @@
-# Don't Remove Credit @VJ_Bots
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+# Razer Filter Bot - @Therazerhub
 
 import os, string, logging, random, asyncio, time, datetime, re, sys, json, base64
 from Script import script
@@ -48,10 +46,10 @@ async def auto_approve(client, message: ChatJoinRequest):
         return 
     data = await db.get_msg_command(ap_user_id)
         
-    if data.split("-", 1)[0] == "VJ":
+    if data.split("-", 1)[0] == "RZR":
         user_id = int(data.split("-", 1)[1])
-        vj = await referal_add_user(user_id, message.from_user.id)
-        if vj and PREMIUM_AND_REFERAL_MODE == True:
+        rzr = await referal_add_user(user_id, message.from_user.id)
+        if rzr and PREMIUM_AND_REFERAL_MODE == True:
             await message.reply(f"<b>You have joined using the referral link of user with ID {user_id}\n\nSend /start again to use the bot</b>")
             num_referrals = await get_referal_users_count(user_id)
             await client.send_message(chat_id = user_id, text = "<b>{} start the bot with your referral link\n\nTotal Referals - {}</b>".format(message.from_user.mention, num_referrals))
@@ -325,7 +323,7 @@ async def auto_approve(client, message: ChatJoinRequest):
                 except:
                     f_caption=f_caption
             if f_caption is None:
-                f_caption = f"@VJ_Bots {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1['file_name'].split()))}"
+                f_caption = f"@Therazerhub {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1['file_name'].split()))}"
             if not await db.has_premium_access(message.from_user.id):
                 if not await check_verification(client, message.from_user.id) and VERIFY == True:
                     btn = [[
@@ -448,7 +446,7 @@ async def auto_approve(client, message: ChatJoinRequest):
         except:
             f_caption=f_caption
     if f_caption is None:
-        f_caption = f"@VJ_Bots {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files['file_name'].split()))}"
+        f_caption = f"@Therazerhub {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files['file_name'].split()))}"
     if not await db.has_premium_access(message.from_user.id):
         if not await check_verification(client, message.from_user.id) and VERIFY == True:
             btn = [[

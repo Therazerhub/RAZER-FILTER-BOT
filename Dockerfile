@@ -1,4 +1,4 @@
-# VJ-Filter-Bot — Dockerfile (fixed)
+# Razer-Filter-Bot — Dockerfile
 # base bumped from EOL buster -> bookworm (live apt repos), ffmpeg added for stream/download
 
 FROM python:3.10-slim-bookworm
@@ -12,8 +12,8 @@ COPY requirements.txt /requirements.txt
 RUN pip3 install --no-cache-dir -U pip \
     && pip3 install --no-cache-dir -U -r /requirements.txt
 
-WORKDIR /VJ-FILTER-BOT
-COPY . /VJ-FILTER-BOT
+WORKDIR /Razer-Filter-Bot
+COPY . /Razer-Filter-Bot
 
 EXPOSE 8080
 CMD ["python", "bot.py"]
