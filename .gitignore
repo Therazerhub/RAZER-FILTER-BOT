@@ -1,0 +1,10 @@
+.env
+vj.env
+.venv/
+__pycache__/
+database/__pycache__/
+*.pyc
+*.log
+TELEGRAM BOT.LOG
+*.session
+*.session-journal

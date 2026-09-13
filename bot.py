@@ -5,6 +5,8 @@
 # Clone Code Credit : YT - @Tech_VJ / TG - @VJ_Bots / GitHub - @VJBots
 
 import sys, glob, importlib, logging, logging.config, pytz, asyncio
+from dotenv import load_dotenv
+load_dotenv()  # load .env before anything reads os.environ
 from pathlib import Path
 
 # Get logging configurations
